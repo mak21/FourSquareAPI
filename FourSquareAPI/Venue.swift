@@ -17,20 +17,20 @@ class Venue{
     var catName : String = ""
     init(dict : [String : Any]){
         
-        name = dict["name"] as! String ?? ""
+        name = dict["name"] as! String ?? "Not Available"
         id = dict["id"] as! String ?? ""
         if let location = dict["location"] as? [String:Any] {
-            address = location["address"] as? String ?? ""
-            city = location["city"] as? String ?? ""
+            address = location["address"] as? String ?? "Not Available"
+            city = location["city"] as? String ?? "Not Available"
         }
         if let contact = dict["contact"] as? [String:Any] {
-            phone = contact["phone"] as? String ?? ""
+            phone = contact["phone"] as? String ?? "Not Available"
         }
-        url = dict["url"] as? String ?? ""
+        url = dict["url"] as? String ?? "Not Available"
         if let categories = dict["categories"] as? [[String:Any]] {
             for catrgory in categories{
             
-            catName = catrgory["name"] as? String ?? ""
+            catName = catrgory["name"] as? String ?? "Not Available"
             
         }
     }

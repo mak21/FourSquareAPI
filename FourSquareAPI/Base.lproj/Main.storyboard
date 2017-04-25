@@ -111,7 +111,7 @@
         <!--Details View Controller-->
         <scene sceneID="SnK-If-7ym">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="8f4-yI-ioh" customClass="DetailsViewController" customModule="FourSquareAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" automaticallyAdjustsScrollViewInsets="NO" id="8f4-yI-ioh" customClass="DetailsViewController" customModule="FourSquareAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Vr-qH-2gp"/>
                         <viewControllerLayoutGuide type="bottom" id="wy0-pv-sUr"/>
@@ -121,30 +121,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wT4-ek-nL9">
-                                <rect key="frame" x="0.0" y="350" width="375" height="317"/>
+                                <rect key="frame" x="5" y="275" width="360" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="317" id="m0D-j1-j6Q"/>
+                                    <constraint firstAttribute="height" constant="392" id="m0D-j1-j6Q"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="82Z-Qg-cYY" detailTextLabel="3Up-kW-Drg" style="IBUITableViewCellStyleSubtitle" id="rra-F4-Uek">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="82Z-Qg-cYY" style="IBUITableViewCellStyleDefault" id="rra-F4-Uek">
+                                        <rect key="frame" x="0.0" y="28" width="360" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rra-F4-Uek" id="xe3-ed-Ktq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="82Z-Qg-cYY">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="330" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Up-kW-Drg">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -153,35 +146,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WQL-wD-FNM">
-                                <rect key="frame" x="0.0" y="68" width="375" height="191"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WQL-wD-FNM">
+                                <rect key="frame" x="5" y="70" width="365" height="189"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCi-ee-7Yp">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K74-RE-s9M">
-                                        <rect key="frame" x="0.0" y="38" width="375" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="40" width="365" height="29.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is3-de-X1u">
-                                        <rect key="frame" x="0.0" y="76.5" width="375" height="38"/>
+                                        <rect key="frame" x="0.0" y="79.5" width="365" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wn-Uc-s6w">
-                                        <rect key="frame" x="0.0" y="114.5" width="375" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="119.5" width="365" height="29.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-AP-Ll3">
-                                        <rect key="frame" x="0.0" y="153" width="375" height="38"/>
+                                        <rect key="frame" x="0.0" y="159" width="365" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -195,13 +193,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WQL-wD-FNM" firstAttribute="leading" secondItem="KdC-4p-Js1" secondAttribute="leading" id="AJy-UN-w4l"/>
-                            <constraint firstItem="WQL-wD-FNM" firstAttribute="trailing" secondItem="wT4-ek-nL9" secondAttribute="trailing" id="IaM-mO-spE"/>
-                            <constraint firstItem="WQL-wD-FNM" firstAttribute="top" secondItem="KdC-4p-Js1" secondAttribute="top" constant="68" id="dAK-gB-MNs"/>
+                            <constraint firstItem="WQL-wD-FNM" firstAttribute="leading" secondItem="KdC-4p-Js1" secondAttribute="leading" constant="5" id="AJy-UN-w4l"/>
+                            <constraint firstItem="WQL-wD-FNM" firstAttribute="trailing" secondItem="wT4-ek-nL9" secondAttribute="trailing" constant="5" id="IaM-mO-spE"/>
+                            <constraint firstItem="WQL-wD-FNM" firstAttribute="top" secondItem="KdC-4p-Js1" secondAttribute="top" constant="70" id="dAK-gB-MNs"/>
                             <constraint firstItem="WQL-wD-FNM" firstAttribute="leading" secondItem="wT4-ek-nL9" secondAttribute="leading" id="dCW-PH-FGI"/>
                             <constraint firstItem="wT4-ek-nL9" firstAttribute="bottom" secondItem="wy0-pv-sUr" secondAttribute="top" id="t1R-gO-keQ"/>
-                            <constraint firstAttribute="trailing" secondItem="WQL-wD-FNM" secondAttribute="trailing" id="wDL-2v-B9L"/>
-                            <constraint firstItem="wT4-ek-nL9" firstAttribute="top" secondItem="WQL-wD-FNM" secondAttribute="bottom" constant="91" id="wHz-f8-GJQ"/>
+                            <constraint firstAttribute="trailing" secondItem="WQL-wD-FNM" secondAttribute="trailing" constant="5" id="wDL-2v-B9L"/>
+                            <constraint firstItem="wT4-ek-nL9" firstAttribute="top" secondItem="WQL-wD-FNM" secondAttribute="bottom" constant="16" id="wHz-f8-GJQ"/>
                         </constraints>
                     </view>
                     <connections>

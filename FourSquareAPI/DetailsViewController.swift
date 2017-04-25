@@ -100,11 +100,26 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
         return UITableViewCell()
     }
-    cell.detailTextLabel?.text = reviewText[indexPath.row]
+    cell.textLabel?.text = reviewText[indexPath.row]
     return cell
 }
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return reviewText.count
+    if reviewText.count != 0{
+        reviewTableView.separatorStyle = .singleLine
+        reviewTableView.backgroundView = nil
+       return reviewText.count
+    }else{
+        let messageLabel = UILabel.init()
+        
+        messageLabel.text = "No available Reviews"
+        messageLabel.textColor = UIColor.black
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        reviewTableView.backgroundView = messageLabel;
+        reviewTableView.separatorStyle = .none
+    }
+     return 0
+    }
 }
 
-}
+
