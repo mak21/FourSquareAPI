@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FourSquareAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="FourSquareAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-Et-Dvw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="SeQ-Wx-TqC" detailTextLabel="1jI-VO-4gh" style="IBUITableViewCellStyleSubtitle" id="Wym-mJ-Pl6">
@@ -51,17 +51,39 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z2u-O7-6l2">
+                                <rect key="frame" x="0.0" y="25" width="375" height="29"/>
+                                <segments>
+                                    <segment title="List"/>
+                                    <segment title="Map"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControllerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="dS1-m1-akk"/>
+                                </connections>
+                            </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gld-aO-8X8">
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gld-aO-8X8" secondAttribute="trailing" id="62p-iZ-Z5p"/>
+                            <constraint firstItem="Z2u-O7-6l2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="88N-NC-oxJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Z2u-O7-6l2" secondAttribute="trailing" id="9WW-Kw-kyi"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8gp-Et-Dvw" secondAttribute="bottom" id="F0W-86-8vL"/>
-                            <constraint firstItem="8gp-Et-Dvw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Wy6-3D-gLF"/>
+                            <constraint firstItem="Z2u-O7-6l2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="LSl-ce-caQ"/>
                             <constraint firstAttribute="trailing" secondItem="8gp-Et-Dvw" secondAttribute="trailing" id="cxb-jp-rm6"/>
+                            <constraint firstItem="gld-aO-8X8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fNT-s9-L84"/>
+                            <constraint firstItem="gld-aO-8X8" firstAttribute="top" secondItem="8gp-Et-Dvw" secondAttribute="top" id="ghV-rd-wZc"/>
+                            <constraint firstItem="8gp-Et-Dvw" firstAttribute="top" secondItem="Z2u-O7-6l2" secondAttribute="bottom" constant="5" id="p6F-c5-4lm"/>
                             <constraint firstItem="8gp-Et-Dvw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qkE-DH-2s8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gld-aO-8X8" secondAttribute="bottom" id="vFj-FW-mqb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xck-fq-tsw"/>
                     <connections>
+                        <outlet property="mapView" destination="gld-aO-8X8" id="UT0-zh-WhJ"/>
+                        <outlet property="segmentedControler" destination="Z2u-O7-6l2" id="GXF-on-X1t"/>
                         <outlet property="tableView" destination="8gp-Et-Dvw" id="0oP-GF-Adi"/>
                     </connections>
                 </viewController>
@@ -220,6 +242,46 @@
             </objects>
             <point key="canvasLocation" x="1940" y="122.78860569715144"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="IOe-NJ-4Tp">
+            <objects>
+                <viewController id="uQh-7F-hwY" customClass="WebViewController" customModule="FourSquareAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gTW-WU-tqt"/>
+                        <viewControllerLayoutGuide type="bottom" id="01h-Y3-lrg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3zF-ns-sOR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="959-Iw-Ofj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="01h-Y3-lrg" firstAttribute="top" secondItem="959-Iw-Ofj" secondAttribute="bottom" id="8D9-2H-CjL"/>
+                            <constraint firstItem="959-Iw-Ofj" firstAttribute="top" secondItem="gTW-WU-tqt" secondAttribute="bottom" id="NLp-mb-01J"/>
+                            <constraint firstAttribute="trailing" secondItem="959-Iw-Ofj" secondAttribute="trailing" id="SsQ-6I-k0B"/>
+                            <constraint firstItem="959-Iw-Ofj" firstAttribute="leading" secondItem="3zF-ns-sOR" secondAttribute="leading" id="gWw-D4-qvK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2da-pH-8AM">
+                        <barButtonItem key="leftBarButtonItem" title="back" id="3gM-d3-pKQ">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="uQh-7F-hwY" id="sjp-tH-dTE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="959-Iw-Ofj" id="pMq-gC-YIl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLP-ev-ofh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3815.1999999999998" y="121.88905547226388"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ppv-YR-sCI">
             <objects>
@@ -237,6 +299,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRn-Bj-VoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-452" y="123"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="piM-mu-S35">
+            <objects>
+                <navigationController storyboardIdentifier="WebViewControllerNAV" automaticallyAdjustsScrollViewInsets="NO" id="kME-JK-aA9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n7G-N5-FLL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uQh-7F-hwY" kind="relationship" relationship="rootViewController" id="AMH-wU-Qlj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmU-Uh-PTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2876" y="121.88905547226388"/>
         </scene>
     </scenes>
 </document>

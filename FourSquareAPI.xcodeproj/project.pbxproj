@@ -15,6 +15,9 @@
 		24D323081EAF329800ADE41E /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D323071EAF329800ADE41E /* Venue.swift */; };
 		24D3230A1EAF472100ADE41E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D323091EAF472100ADE41E /* DetailsViewController.swift */; };
 		24D3230C1EAF655500ADE41E /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D3230B1EAF655500ADE41E /* searchViewController.swift */; };
+		24E0E6711EB03E4900E23A5A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E0E6701EB03E4900E23A5A /* WebViewController.swift */; };
+		24E0E6971EB054A500E23A5A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E0E6961EB054A500E23A5A /* MapKit.framework */; };
+		24E0E6991EB054AE00E23A5A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E0E6981EB054AE00E23A5A /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		24D323071EAF329800ADE41E /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		24D323091EAF472100ADE41E /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		24D3230B1EAF655500ADE41E /* searchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
+		24E0E6701EB03E4900E23A5A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		24E0E6961EB054A500E23A5A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		24E0E6981EB054AE00E23A5A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E0E6991EB054AE00E23A5A /* CoreLocation.framework in Frameworks */,
+				24E0E6971EB054A500E23A5A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +54,7 @@
 			children = (
 				24D322F41EAF296A00ADE41E /* FourSquareAPI */,
 				24D322F31EAF296A00ADE41E /* Products */,
+				24E0E6951EB054A500E23A5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,8 +78,18 @@
 				24D323011EAF296A00ADE41E /* Info.plist */,
 				24D323071EAF329800ADE41E /* Venue.swift */,
 				24D3230B1EAF655500ADE41E /* searchViewController.swift */,
+				24E0E6701EB03E4900E23A5A /* WebViewController.swift */,
 			);
 			path = FourSquareAPI;
+			sourceTree = "<group>";
+		};
+		24E0E6951EB054A500E23A5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24E0E6981EB054AE00E23A5A /* CoreLocation.framework */,
+				24E0E6961EB054A500E23A5A /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24D322F81EAF296A00ADE41E /* ViewController.swift in Sources */,
+				24E0E6711EB03E4900E23A5A /* WebViewController.swift in Sources */,
 				24D3230C1EAF655500ADE41E /* searchViewController.swift in Sources */,
 				24D322F61EAF296A00ADE41E /* AppDelegate.swift in Sources */,
 				24D323081EAF329800ADE41E /* Venue.swift in Sources */,
@@ -316,6 +336,7 @@
 				24D323061EAF296A00ADE41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

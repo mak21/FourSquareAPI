@@ -7,18 +7,49 @@
 //
 
 import UIKit
-
+import MapKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var segmentedControler: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
 var venues = [Venue]()
     var cat = "all"
     var filterdVenues = [Venue]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        
+        segmentedControler.selectedSegmentIndex = 0
+        mapView.isHidden = true
         findVenues()
+    }
+    func setUpMap(){
+        
+        for venue in venues{
+           let  lat = venue.lat
+            let lng = venue.lng
+        let venueAnnotation = MKPointAnnotation()
+        venueAnnotation.title = venue.name
+        venueAnnotation.subtitle = venue.address
+        venueAnnotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        
+        mapView.addAnnotation(venueAnnotation)
+       
+        mapView.setCenter(CLLocationCoordinate2D(latitude: lat, longitude: lng), animated: true)
+        
+    }
+    }
+    @IBAction func segmentedControllerValueChanged(_ sender: Any) {
+        if self.segmentedControler.selectedSegmentIndex == 1{
+            tableView.isHidden = true
+             mapView.isHidden = false
+            setUpMap()
+        }else{
+            tableView.isHidden = false
+            mapView.isHidden = true
+        }
     }
     
     func findVenues(){
@@ -63,6 +94,7 @@ var venues = [Venue]()
                        //
                         venues.append(newVenue)
                         
+                        
         }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -91,6 +123,43 @@ var venues = [Venue]()
             detailController.selectedVenue = venues[indexPath.row]
             navigationController?.pushViewController(detailController, animated: true)
         }
+    }
+
+}
+extension ViewController : MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        let annotationView = MKPinAnnotationView()
+        annotationView.pinTintColor = UIColor.red
+        annotationView.canShowCallout = true
+        annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        return annotationView
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let coord = view.annotation?.coordinate  else {
+            return
+        }
+      
+            if let  detailController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController{
+                for venue in venues{
+                    if venue.name == (view.annotation?.title)!{
+                        detailController.selectedVenue = venue
+                        
+                    }
+                }
+                navigationController?.pushViewController(detailController, animated: true)
+            
+        
+        }
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let coord = view.annotation?.coordinate  else {
+            return
+        }
+        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        let region = MKCoordinateRegion(center: coord, span: span)
+        mapView.setRegion(region, animated: true)
+
     }
 
 }

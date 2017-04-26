@@ -94,7 +94,12 @@ func papolateReviews(_ dict : [String:Any]){
 
     @IBAction func handleURL(_ sender: Any) {
         print("hi")
-        UIApplication.shared.open(URL(string: selectedVenue.url)!, options: [:], completionHandler: nil)
+        guard let navController = storyboard?.instantiateViewController(withIdentifier: "WebViewControllerNAV") as? UINavigationController else { return }
+        
+        let webController = navController.childViewControllers.first as? WebViewController
+        webController?.currentURL = selectedVenue.url
+        present(navController, animated: true, completion: nil)
+        //UIApplication.shared.open(URL(string: selectedVenue.url)!, options: [:], completionHandler: nil)
     }
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
